@@ -26,7 +26,7 @@ To make sure your data doesn't get deleted, you'll probably want to create a per
 ```
 docker run --restart always -v /srv/dav:/var/lib/dav \
     -e AUTH_TYPE=Digest -e USERNAME=alice -e PASSWORD=secret1234 \
-    --publish 80:80 -d ghcr.io/Ew4n1011/docker-webdav:main
+    --publish 80:80 -d ghcr.io/Ew4n1011/webdav-docker:main
 
 ```
 
@@ -36,7 +36,7 @@ docker run --restart always -v /srv/dav:/var/lib/dav \
 version: '3'
 services:
   webdav:
-    image: ghcr.io/Ew4n1011/docker-webdav:main
+    image: ghcr.io/Ew4n1011/webdav-docker:main
     restart: always
     ports:
       - "80:80"
@@ -57,7 +57,7 @@ If you're happy with a self-signed SSL certificate, specify `-e SSL_CERT=selfsig
 ```
 docker run --restart always -v /srv/dav:/var/lib/dav \
     -e AUTH_TYPE=Basic -e USERNAME=test -e PASSWORD=test \
-    -e SSL_CERT=selfsigned --publish 443:443 -d ghcr.io/Ew4n1011/docker-webdav:main
+    -e SSL_CERT=selfsigned --publish 443:443 -d ghcr.io/Ew4n1011/webdav-docker:main
 
 ```
 
